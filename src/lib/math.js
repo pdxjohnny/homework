@@ -22,6 +22,17 @@ math.prototype.surfaceArea = function (radius) {
   return radius;
 };
 
+math.prototype.volume = function (radius) {
+  console.log('v = 4 / 3 * PI * r ^ 3');
+  radius = Math.pow(radius, 3);
+  console.log('radius ^ 3\t=', radius);
+  radius *= (4 / 3);
+  console.log('radius * (4 / 3)\t=', radius);
+  radius *= Math.PI;
+  console.log('radius * PI\t=', radius);
+  return radius;
+};
+
 math.prototype.mtokm = function (num) {
   console.log(num, 'm to', num / 1000, 'km');
   num /= 1000;
@@ -29,10 +40,19 @@ math.prototype.mtokm = function (num) {
 };
 
 math.prototype.round = function (num, intended) {
-  var roundTo = Math.pow(10, String(intended).match(/0/g || []).length);
+  var roundTo = Math.pow(10, this.countZeros(intended));
   var rounded = Math.round(num / roundTo) * roundTo;
   console.log('round', num, 'to', rounded);
   return rounded;
+};
+
+math.prototype.countZeros = function (intended) {
+  var numZeros = 0;
+  var asString = String(intended).split("").reverse().join("");
+  for (var i = 0; i < asString.length && asString[i] == '0'; i++) {
+    numZeros++;
+  }
+  return numZeros;
 };
 
 module.exports = new math();
