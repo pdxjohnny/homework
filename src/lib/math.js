@@ -5,38 +5,32 @@ var math = function () {
 math.prototype.circumference = function (radius) {
   console.log('c = 2 * PI * r');
   radius *= 2;
-  console.log('radius * 2\t=', radius);
+  console.log('radius * 2\t=', radius, radius.toExponential());
   radius *= Math.PI;
-  console.log('radius * PI\t=', radius);
+  console.log('radius * PI\t=', radius, radius.toExponential());
   return radius;
 };
 
 math.prototype.surfaceArea = function (radius) {
   console.log('sa = 4 * PI * r ^ 2');
   radius = Math.pow(radius, 2);
-  console.log('radius ^ 2\t=', radius);
+  console.log('radius ^ 2\t=', radius, radius.toExponential());
   radius *= 4;
-  console.log('radius * 4\t=', radius);
+  console.log('radius * 4\t=', radius, radius.toExponential());
   radius *= Math.PI;
-  console.log('radius * PI\t=', radius);
+  console.log('radius * PI\t=', radius, radius.toExponential());
   return radius;
 };
 
 math.prototype.volume = function (radius) {
   console.log('v = 4 / 3 * PI * r ^ 3');
   radius = Math.pow(radius, 3);
-  console.log('radius ^ 3\t=', radius);
+  console.log('radius ^ 3\t=', radius, radius.toExponential());
   radius *= (4 / 3);
-  console.log('radius * (4 / 3)\t=', radius);
+  console.log('radius * (4 / 3)\t=', radius, radius.toExponential());
   radius *= Math.PI;
-  console.log('radius * PI\t=', radius);
+  console.log('radius * PI\t=', radius, radius.toExponential());
   return radius;
-};
-
-math.prototype.mtokm = function (num) {
-  console.log(num, 'm to', num / 1000, 'km');
-  num /= 1000;
-  return num;
 };
 
 math.prototype.round = function (num, intended) {
